@@ -21,6 +21,7 @@ class CustomerProfileController extends Controller
 
         $customer_data = Customer::where('email',FacadesAuth::guard('customer')->user()->email)->first();
 
+        $id = Customer::where('email',FacadesAuth::guard('customer')->user()->email)->first();
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -48,6 +49,7 @@ class CustomerProfileController extends Controller
 
             unlink(public_path('uploads/'.$customer_data->photo));
 
+            $id-> id = $request->id;
             $ext = $request->file('photo')->extension();
             $final_name = 'customer'.'.'.$ext;
 

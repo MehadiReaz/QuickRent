@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
         $obj = new Admin;
         $obj->name = "Abc";
         $obj->email = "newuser@gmail.com";
-        $obj->password = "";
+        $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->photo = "";
         $obj->token = "";
         $obj->save();

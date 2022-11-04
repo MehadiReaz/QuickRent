@@ -16,6 +16,7 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $obj = new Product;
+        $obj->name = "Abc";
         $obj->save();
     }
 }

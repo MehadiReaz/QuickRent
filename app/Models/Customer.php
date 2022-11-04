@@ -10,4 +10,5 @@ class Customer extends Authenticatable
 {
     use HasFactory;
     public $timestamps = true;
+
 }
