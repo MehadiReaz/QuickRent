@@ -6,12 +6,12 @@
 
     <link rel="icon" type="image/png" href="uploads/favicon.png">
 
-    <title>Admin Panel</title>
+    <title>Customer Panel</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
-    @include('admin.layout.styles')
-    @include('admin.layout.scripts')
+    @include('customer.layout.styles')
+    @include('customer.layout.scripts')
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                                 <h4 class="text-center">Reset Password</h4>
                             </div>
                             <div class="card-body card-body-auth">
-                                <form method="POST" action="{{ route('admin_forget_password_submit') }}">
+                                <form method="POST" action="{{ route('customer_forget_password_submit') }}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('email') is-invalid @enderror " 
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div>
-                                            <a href="{{ route('admin_login') }}">
+                                            <a href="{{ route('customer_login') }}">
                                                 Back to login page
                                             </a>
                                         </div>
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-@include('admin.layout.scripts_footer')
+@include('customer.layout.scripts_footer')
 
 </body>
 </html>

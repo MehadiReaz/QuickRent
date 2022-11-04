@@ -7,12 +7,12 @@
 
     <link rel="icon" type="image/png" href="uploads/favicon.png">
 
-    <title>Admin Panel</title>
+    <title>Customer Panel</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
-    @include('admin.layout.styles')
-    @include('admin.layout.scripts')
+    @include('customer.layout.styles')
+    @include('customer.layout.scripts')
 </head>
 
 <body>
@@ -25,7 +25,7 @@
                             class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                             <div class="card card-primary border-box">
                                 <div class="card-header card-header-auth">
-                                    <h4 class="text-center">Admin Panel Login</h4>
+                                    <h4 class="text-center">Customer Panel Login</h4>
                                 </div>
                                 <div class="card-body card-body-auth">
 
@@ -33,7 +33,7 @@
                                                 <div class="text-success">{{ session()->get('success') }}</div>
                                             @endif
 
-                                    <form method="POST" action="{{ route('admin_login_submit') }}">
+                                    <form method="POST" action="{{ route('customer_login_submit') }}">
                                         @csrf
                                         <div class="form-group">
                                             <input type="text"
@@ -61,8 +61,15 @@
                                         </div>
                                         <div class="form-group">
                                             <div>
-                                                <a href="{{ route('admin_forget_password') }}">
+                                                <a href="{{ route('customer_forget_password') }}">
                                                     Forget Password?
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div>
+                                                <a href="{{ route('customer_signup') }}">
+                                                    Create an Account!
                                                 </a>
                                             </div>
                                         </div>
@@ -76,7 +83,7 @@
         </div>
     </div>
 
-    @include('admin.layout.scripts_footer')
+    @include('customer.layout.scripts_footer')
 
 </body>
 
