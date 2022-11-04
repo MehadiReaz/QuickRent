@@ -6,12 +6,12 @@
 
     <link rel="icon" type="image/png" href="uploads/favicon.png">
 
-    <title>Admin Panel</title>
+    <title>Customer Panel</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
-    @include('admin.layout.styles')
-    @include('admin.layout.scripts')
+    @include('customer.layout.styles')
+    @include('customer.layout.scripts')
 </head>
 
 <body>
@@ -26,29 +26,31 @@
                                 <h4 class="text-center">Reset Password</h4>
                             </div>
                             <div class="card-body card-body-auth">
-                                <form method="POST" action="{{ route('admin_forget_password_submit') }}">
+                                <form method="POST" action="{{ route('customer_reset_password_submit') }}">
                                     @csrf
+
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <input type="hidden" name="email" value="{{ $email }}">
+
                                     <div class="form-group">
-                                        <input type="text" class="form-control @error('email') is-invalid @enderror " 
-                                        name="email" placeholder="Email Address" value="" autofocus>
-                                        @error('email')
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror " 
+                                        name="password" placeholder="Password">
+                                        @error('retype_password')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
-                                            @if(session()->get('error'))
-                                                <div class="text-danger">{{ session()->get('error') }}</div>
-                                            @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="retype_password" class="form-control @error('retype_password') is-invalid @enderror " 
+                                        name="retype_password" placeholder="Retype Password" value="" autofocus>
+                                        @error('password')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                            Send Password Reset Link
+                                            Update
                                         </button>
                                     </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <a href="{{ route('admin_login') }}">
-                                                Back to login page
-                                            </a>
-                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -60,7 +62,7 @@
     </div>
 </div>
 
-@include('admin.layout.scripts_footer')
+@include('customer.layout.scripts_footer')
 
 </body>
 </html>
