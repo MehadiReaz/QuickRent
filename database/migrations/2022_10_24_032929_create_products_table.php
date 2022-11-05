@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('category');
             $table->text('details');
-            $table->text('photo');
+            $table->text('photo')->nullable();
             $table->integer('c_id');
             $table->timestamps();
         });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 
@@ -87,4 +88,28 @@ class ProductController extends Controller
         $products = Product::where('c_id',session()->get('c_id'))->get();
         return view('product.product')->with("products", $products);
     }
+
+    public function addProduct(){
+        return view('product.addProduct');
+    }
+
+    public function addProduct_submit(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'category' => 'required',
+            'details' => 'required',
+        ]);
+
+        $obj = new Product();
+        $obj->name = $request->name;
+        $obj->price = $request->price;
+        $obj->category = $request->category;
+        $obj->details = $request->details;
+        $obj->c_id = session()->get('c_id');
+        $obj->save();
+
+        return view('product.addProduct')->with('msg', 'Product added successfully');
+    }
+
 }

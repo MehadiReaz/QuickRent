@@ -189,7 +189,7 @@ $(document).ready(function(){
                         <h2>Product <b>Management</b></h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add Product</span></a>
+                        <a href="addProduct" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add Product</span></a>
                         <a href="{{ route('customer_home') }}" class="btn btn-secondary"> <span>Customer Dashboard</span></a>
                     </div>
                 </div>
@@ -202,7 +202,7 @@ $(document).ready(function(){
                         <th>Price</th>
                         <th>Category</th>
                         <th>Detail</th>
-                        <th>Photo</th>
+                        {{-- <th>Photo</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -224,7 +224,7 @@ $(document).ready(function(){
                         <td>{{$product->price}}</td>
                         <td>{{$product->category}}</td>
                         <td>{{$product->details}}</td>
-                        <td>{{$product->photo}}</td>
+                        {{-- <td>{{$product->photo}}</td> --}}
                     </tr>
                     @endforeach
                 </tbody>
