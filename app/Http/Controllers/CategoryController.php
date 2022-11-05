@@ -83,4 +83,10 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public static function allCategorys(){
+        $categorys = Category::all('name');
+
+        return $categorys;
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -90,7 +91,8 @@ class ProductController extends Controller
     }
 
     public function addProduct(){
-        return view('product.addProduct');
+        $categorys = CategoryController::allCategorys();
+        return view('product.addProduct')->with("categorys", $categorys);
     }
 
     public function addProduct_submit(Request $request){
@@ -113,8 +115,9 @@ class ProductController extends Controller
     }
 
     public function editProduct(Request $request){
+        $categorys = CategoryController::allCategorys();
         $product = Product::where('id', $request->id)->first();
-        return view('product.editProduct')->with("product", $product);
+        return view('product.editProduct')->with("product", $product)->with("categorys", $categorys);
     }
 
     public function editProduct_submit(Request $request){

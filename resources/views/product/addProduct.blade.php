@@ -1,7 +1,6 @@
 @extends('customer.layout.app')
 
 @section('heading', 'Add Product')
-
 @section('main_content')
 <div class="main-content">
     <section class="section">
@@ -32,7 +31,13 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label" >Product category</label>
-                                    <input type="text" class="form-control" name="category">
+                                    <select id="category" class="form-control" name="category">
+                                        <ul class="dropdown-menu" aria-labelledby="category">
+                                            @foreach ($categorys as $category)
+                                            <li><option value={{$category}}>{{$category->name}}</option></li>
+                                            @endforeach
+                                        </ul>
+                                    </select>
                                     @if($errors->has('category'))
                                     <span class="text-danger">{{ $errors -> first('category') }}</span>
                                     @endif
