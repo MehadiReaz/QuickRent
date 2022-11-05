@@ -181,6 +181,9 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="container-xl">
+    @if (session()->has('msg'))
+        <strong><span class="text-success">{{ session()->get('msg') }}</span></strong>
+    @endif
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -202,6 +205,7 @@ $(document).ready(function(){
                         <th>Price</th>
                         <th>Category</th>
                         <th>Detail</th>
+                        <th>Actions</th>
                         {{-- <th>Photo</th> --}}
                     </tr>
                 </thead>
@@ -225,6 +229,10 @@ $(document).ready(function(){
                         <td>{{$product->category}}</td>
                         <td>{{$product->details}}</td>
                         {{-- <td>{{$product->photo}}</td> --}}
+                        <td>
+                            <a href="editProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="deleteProduct/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
