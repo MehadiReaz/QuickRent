@@ -28,7 +28,7 @@ class CustomerLoginController extends Controller
         if(!$customer_data){
             return redirect()->back()->with('error','Email address not found!');
         }
-        
+
         $token = hash('sha256',time());
 
 
@@ -54,6 +54,9 @@ class CustomerLoginController extends Controller
             'password' => $request->password
         ];
         if(Auth::guard('customer')->attempt($credential)){
+            $customer = Customer::where('email', $request->email)->first();
+            session()->put("c_id",$customer->id);
+            session()->put("type",'c');
             return redirect()->route('customer_home');
         }
         else {
@@ -63,6 +66,7 @@ class CustomerLoginController extends Controller
     public function logout()
     {
         Auth::guard('customer')->logout();
+        session()->flush();
         return redirect()->route('customer_login');
     }
 
@@ -120,7 +124,7 @@ class CustomerLoginController extends Controller
         $message .= '</a>';
 
         \Mail::to($request->email)->send(new Websitemail($subject,$message));
-        
+
         return redirect()->back()->with('success','ck email');
 
     }

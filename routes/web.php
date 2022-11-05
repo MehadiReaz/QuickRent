@@ -45,4 +45,6 @@ Route::get('/signup-verify/{email}/{token}', [CustomerLoginController::class, 's
 
 //Product
 Route::get('/product/product',[ProductController::class, 'myProducts'])->name('myProducts');
+Route::get('/product/addProduct',[ProductController::class, 'addProduct'])->name('addProduct');
+Route::post('/product/addProduct',[ProductController::class, 'addProduct_submit'])->name('addProduct_submit');
 
