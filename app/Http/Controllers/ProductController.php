@@ -112,4 +112,36 @@ class ProductController extends Controller
         return view('product.addProduct')->with('msg', 'Product added successfully');
     }
 
+    public function editProduct(Request $request){
+        $product = Product::where('id', $request->id)->first();
+        return view('product.editProduct')->with("product", $product);
+    }
+
+    public function editProduct_submit(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'category' => 'required',
+            'details' => 'required',
+        ]);
+
+        $obj = Product::Where('id', $request->id)->first();
+        $obj->name = $request->name;
+        $obj->price = $request->price;
+        $obj->category = $request->category;
+        $obj->details = $request->details;
+        $obj->save();
+
+        session()->flash('msg', 'Edit successful.');
+        return redirect('product/product');
+    }
+
+    public function deleteProduct(Request $request){
+        $product = Product::where('id', $request->id)->first();
+        $product->delete();
+
+        session()->flash('msg', 'Delete successful.');
+        return redirect('product/product');
+    }
+
 }
