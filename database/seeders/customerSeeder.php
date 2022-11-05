@@ -24,5 +24,6 @@ class customerSeeder extends Seeder
         $obj->status =0;
         $obj->save();
 
+
     }
 }
