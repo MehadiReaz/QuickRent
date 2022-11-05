@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('name');
             $table->integer('price');
-            $table->integer('category');
+            $table->text('category');
             $table->text('details');
             $table->text('photo')->nullable();
             $table->integer('c_id');
