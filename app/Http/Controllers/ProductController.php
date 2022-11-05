@@ -84,7 +84,7 @@ class ProductController extends Controller
         //
     }
     public function myProducts(){
-        $products = Product::where('c_id',session()->get('user_id'))->get();
+        $products = Product::where('c_id',session()->get('c_id'))->get();
         return view('product.product')->with("products", $products);
     }
 }
