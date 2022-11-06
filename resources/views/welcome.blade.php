@@ -667,19 +667,7 @@ function closeNav() {
   <h2 style="text-align:center">Product Card</h2>
 
 
-<!-- @extends('layouts.app')
-@section('content')
-@foreach ($products as $product)
-<div class="card">
 
-  <img class="card-img-top" src="{{asset('./product_pic/'.$product->photo)}}" alt="camera">
-  <p class="card-text text-center">{{$product->name}}<br>
-  <span>Price: BDT{{$product->price}}</span><br>
-  <p><button>Add to Cart</button></p>
-</div>
-@endforeach
-@endsection
-  -->
 <section class="contact">
   <div class="rt-container">
         <div class="col-rt-12">
