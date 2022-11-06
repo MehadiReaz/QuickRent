@@ -54,7 +54,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3">
-                                    <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" >
+                                    <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" style="max-width: 200px; m-height: 100px;"
+                                    >
                                     <input type="file" name="photo" value="{{$product->photo}}" >
                                 </div>
                                 <div class="mb-3">
