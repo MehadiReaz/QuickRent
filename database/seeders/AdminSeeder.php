@@ -16,8 +16,8 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $obj = new Admin;
-        $obj->name = "shoumik";
-        $obj->email = "shoumik@gmail.com";
+        $obj->name = "Reaz";
+        $obj->email = "reaz@gmail.com";
         $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->photo = "";
         $obj->token = "";

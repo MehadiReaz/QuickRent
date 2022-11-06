@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+Use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
@@ -58,5 +58,10 @@ class AdminProfileController extends Controller
 
         return redirect()->back()->with('success','Profile information updated');
     }
-
+        public function deleteCustomer(Request $request){
+        $customer = Customer::where('id', $request->id)->first();
+        $customer->delete();
+        // session()->flash('msg', 'Delete successful.');
+        return redirect('/admin/customers');
+    }
 }
