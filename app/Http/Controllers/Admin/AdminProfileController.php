@@ -41,10 +41,10 @@ class AdminProfileController extends Controller
                 'photo' => 'image|mimes:jpg,jpeg,png,gif',
             ]);
 
-            unlink(public_path('uploads/'.$admin_data->photo));
+            //unlink(public_path('uploads/'.$admin_data->photo));
 
             $ext = $request->file('photo')->extension();
-            $final_name = 'admin'.'.'.$ext;
+            $final_name = time().'.'.$ext;
 
             $request->file('photo')->move(public_path('uploads/'),$final_name);
 

@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-4">
-                        <form action="{{ route('addProduct_submit') }}" method="post" enctype="multipart/form-data">>
+                        <form action="{{ route('addProduct_submit') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="addProduct-form">
                                 {{-- <input type="text" class="form-control" name="id" value="{{$product->id}}" hidden> --}}
@@ -50,10 +50,10 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3">
-                                    <img src="{ asset('uploads/'}" alt="" class="profile-photo w_100_p" >
-                                    <input type="file" class="form-control mt_10" name="photo">
+                                    {{-- <img src="{ asset('uploads/'}" alt="" class="profile-photo w_100_p" > --}}
+                                    <input type="file"  name="photo">
                                     {{-- <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" > --}}
-                                    <input type="file" name="photo" >
+                                    {{-- <input type="file" name="photo" > --}}
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary bg-website">Submit</button>
