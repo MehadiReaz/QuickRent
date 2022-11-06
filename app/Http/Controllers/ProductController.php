@@ -105,6 +105,16 @@ class ProductController extends Controller
         ]);
 
         $obj = new Product();
+        if($request->hasFile('photo')){
+            $request->validate([
+                'photo' => 'image|mimes:jpg,jpeg,png,gif',
+            ]);
+            $ext = $request->file('photo')->extension();
+            $final_name = time().'.'.$ext;
+            $request->file('photo')->move(public_path('uploads/'),$final_name);
+            $obj->photo =$final_name;
+        }
+
         $obj->name = $request->name;
         $obj->price = $request->price;
         $obj->category = $request->category;
@@ -133,6 +143,15 @@ class ProductController extends Controller
         ]);
 
         $obj = Product::Where('id', $request->id)->first();
+        if($request->hasFile('photo')){
+            $request->validate([
+                'photo' => 'image|mimes:jpg,jpeg,png,gif',
+            ]);
+            $ext = $request->file('photo')->extension();
+            $final_name = time().'.'.$ext;
+            $request->file('photo')->move(public_path('uploads/product/'),$final_name);
+            $obj->photo =$final_name;
+        }
         $obj->name = $request->name;
         $obj->price = $request->price;
         $obj->category = $request->category;

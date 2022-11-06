@@ -49,6 +49,10 @@
                                     <span class="text-danger">{{ $errors -> first('details') }}</span>
                                     @endif
                                 </div>
+                                <div class="col-md-3">
+                                    <img src="{ asset('uploads/'}" alt="" class="profile-photo w_100_p">
+                                    <input type="file" class="form-control mt_10" name="photo">
+                                </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary bg-website">Submit</button>
                                 </div>
