@@ -60,7 +60,7 @@ class CustomerProfileController extends Controller
         $customer_data-> phone = $request->phone;
         $customer_data -> country = $request -> country;
         $customer_data-> address = $request->address;
-        $customer_data -> state = $request -> email;
+        $customer_data -> state = $request -> state;
         $customer_data-> city = $request->city;
         $customer_data -> zip = $request -> zip;
 
