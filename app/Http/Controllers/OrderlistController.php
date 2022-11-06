@@ -7,6 +7,7 @@ use App\Http\Requests\StoreOrderlistRequest;
 use App\Http\Requests\UpdateOrderlistRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Psy\Readline\Hoa\Console;
 
 class OrderlistController extends Controller
 {
@@ -94,8 +95,15 @@ class OrderlistController extends Controller
     }
 
     public function orderProduct(Request $request){
-        $product = Product::Where('id', $request->id)->first();
+        $ids=Orderlist::Select('product_id')->Where('borrower_id', session()->get('c_id'))->get();
+        foreach($ids as $id){
+            if($id['product_id']==$request->id){
+                session()->flash('msg', 'Product order already in process');
+                return redirect('product\rentProduct');
+            }
+        }
 
+        $product = Product::Where('id', $request->id)->first();
         $orderlist = new Orderlist();
         $orderlist->owner_id = $product->c_id;
         $orderlist->final_price = $product->price;
@@ -104,7 +112,9 @@ class OrderlistController extends Controller
         $orderlist->status = 'pending';
         $orderlist->save();
 
-        return back();
+        session()->flash('msg', 'Product added successfuly');
+        return redirect('product\rentProduct');
+
     }
 
 }

@@ -230,10 +230,8 @@ $(document).ready(function(){
                     <td>{{ $user->state }}</td>
                     <td>{{ $user->zip }}</td>
                     <td>{{ $user->city }}</td>
-                    <td>
-                        <a href="{{ route('customer_profile') }}" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a></td>
-                    <td>    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                    </td>
+                    {{-- <td><a href="{{ route('customer_profile') }}" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a></td> --}}
+                    <td><a href="deletecustomer/{{$user->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

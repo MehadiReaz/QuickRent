@@ -190,7 +190,7 @@ class ProductController extends Controller
     }
 
     public function rentProduct(){
-        $products = Product::select("*")->whereNotIn('c_id',[session()->get('c_id')])->get();
+        $products = Product::select("*")->whereNotIn('c_id',[session()->get('c_id')])->where('status',['available'])->get();
         return view('product/rentProduct')->with("products", $products);
     }
 
