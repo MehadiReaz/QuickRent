@@ -667,7 +667,7 @@ function closeNav() {
   <h2 style="text-align:center">Product Card</h2>
 
 
-  @extends('layouts.app')
+<!-- @extends('layouts.app')
 @section('content')
 @foreach ($products as $product)
 <div class="card">
@@ -679,7 +679,7 @@ function closeNav() {
 </div>
 @endforeach
 @endsection
-
+  -->
 <section class="contact">
   <div class="rt-container">
         <div class="col-rt-12">
