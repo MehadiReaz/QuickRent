@@ -14,6 +14,10 @@
         <a href="{{ route("rentProduct") }}"><button type="submit" class="btn btn-primary btn-lg btn-block">
             Rent Products
         </button></a>
+        <br>
+        <a href="{{ route("myOrders") }}"><button type="submit" class="btn btn-primary btn-lg btn-block">
+            My orders
+        </button></a>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">

@@ -83,7 +83,9 @@
                                     </div>
 
                                 <div class="mb-3">
-                                    <button class="btn btn-primary bg-website">Continue</button>
+                                    <a href="../../orderlist/orderProduct/{{$product->id}}"><button type="submit" class="btn btn-primary btn-lg btn-block">
+                                        <h5>Rent Product</h5>
+                                    </button></a>
                                 </div>
                             </div>
                     </form>
