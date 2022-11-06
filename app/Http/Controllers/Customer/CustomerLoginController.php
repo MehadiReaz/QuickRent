@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Mail\Websitemail;
@@ -55,6 +56,12 @@ class CustomerLoginController extends Controller
         ];
         if(Auth::guard('customer')->attempt($credential)){
             $customer = Customer::where('email', $request->email)->first();
+            if($request->remember_me){
+                Cookie::queue('remember_me',$request->email,time()+36000);
+            }
+            else{
+                Cookie::expire('remember_me');
+            }
             session()->put("c_id",$customer->id);
             session()->put("type",'c');
             return redirect()->route('customer_home');

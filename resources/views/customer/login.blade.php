@@ -33,13 +33,13 @@
                                                 <div class="text-success">{{ session()->get('success') }}</div>
                                             @endif
 
+
                                     <form method="POST" action="{{ route('customer_login_submit') }}">
                                         @csrf
                                         <div class="form-group">
                                             <input type="text"
                                                 class="form-control @error('email') is-invalid @enderror "
-                                                name="email" placeholder="Email Address" value="{{ old('email') }}"
-                                                autofocus>
+                                                name="email" placeholder="Email Address" value="<?php if(isset($_COOKIE['remember_me'])) {echo Cookie::get('remember_me');} ?>" autofocus>
                                             @error('email')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
@@ -53,6 +53,9 @@
                                             @error('password')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" name="remember_me" id="remember_me" <?php if(isset($_COOKIE['remember_me'])){echo "checked";}?>/> Remember me
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-lg btn-block">
