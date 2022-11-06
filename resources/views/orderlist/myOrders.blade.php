@@ -224,7 +224,9 @@ $(document).ready(function(){
                     <tr>
                         <td>{{$myBorrow->id}}</td>
                         <td>{{$myBorrow->owner_id}}</td>
-                        <td>{{$myBorrow->final_price}}</td>
+                        <td><input type="number" class="form-control" name="final_price" id="final_price{{$myBorrow->id}}" value="{{$myBorrow->final_price}}" @if ($myBorrow->status!="pending")
+                            readonly
+                        @endif></td>
                         <td>{{$myBorrow->product_id}}</td>
                         <td @if ($myBorrow->status=="pending")
                             bgcolor="red"
@@ -233,11 +235,10 @@ $(document).ready(function(){
                             @else
                             bgcolor="lime"
                         @endif>{{$myBorrow->status}}</td>
-                        {{-- <td>{{$product->photo}}</td> --}}
                         <td>
-                            {{-- <a href="editProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                            <a href="deleteProduct/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                            <a href="productStatusTogg/{{$product->id}}" class="rent" title="Rent On/Off" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
+                            <a href="cancelOrder/{{$myBorrow->id}}/final_price" class="delete" title="Cancel" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            {{-- <a href="offerOrderPrice/{{$myBorrow->id}}/{{$price}}" class="offer" title="Offer Price" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
+                            {{-- <a href="confirmOrder/{{$product->id}}" class="rent" title="Confirm" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
                         </td>
                     </tr>
                     @endforeach
@@ -293,9 +294,9 @@ $(document).ready(function(){
                         @endif>{{$myRent->status}}</td>
                         {{-- <td>{{$product->photo}}</td> --}}
                         <td>
-                            {{-- <a href="acceptOrder/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                            <a href="confirmOrder/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                            <a href="cancelOrder/{{$product->id}}" class="rent" title="Rent On/Off" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
+                            <a href="cancelOrder/{{$myRent->id}}" class="delete" title="Cancel" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="confirmOrder/{{$myRent->id}}" class="rent" title="Confirm" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a>
+
                         </td>
                     </tr>
                     @endforeach

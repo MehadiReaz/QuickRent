@@ -59,3 +59,6 @@ Route::get('/product/rentingProduct/{id}',[ProductController::class, 'rentingPro
 //Order
 Route::get('/orderlist/orderProduct/{id}',[OrderlistController::class, 'orderProduct'])->name('orderProduct');
 Route::get('/orderlist/myOrders',[OrderlistController::class, 'myOrders'])->name('myOrders');
+Route::get('/orderlist/cancelOrder/{id}',[OrderlistController::class, 'cancelOrder'])->name('cancelOrder');
+Route::get('/orderlist/confirmOrder/{id}',[OrderlistController::class, 'confirmOrder'])->name('confirmOrder');
+

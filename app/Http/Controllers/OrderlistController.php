@@ -117,4 +117,49 @@ class OrderlistController extends Controller
 
     }
 
+    public function cancelOrder(Request $request){
+
+        $orderlist = Orderlist::Where('id', $request->id)->first();
+        if($orderlist->status != 'confirmed'){
+            $orderlist->delete();
+            session()->flash('msg', 'Order deleted successfully');
+            return redirect('orderlist/myOrders');
+        }
+
+        session()->flash('msg', 'Confirmed product cannot be deleted by Borrower. Please contact Owner');
+        return redirect('orderlist/myOrders');
+
+    }
+
+    public function confirmOrder(Request $request){
+
+        $orderlist = Orderlist::Where('id', $request->id)->first();
+        if($orderlist->status == 'confirmed'){
+            session()->flash('msg', 'Order already confirmed');
+            return redirect('orderlist/myOrders');
+        }
+        $orderlist->status ='confirmed';
+        $orderlist->save();
+        session()->flash('msg', 'Order confirmed successfully');
+        return redirect('orderlist/myOrders');
+
+    }
+
+    // public function offerOrderPrice(Request $request){
+
+    //     $orderlist = Orderlist::Where('id', $request->id)->first();
+    //     if($orderlist->status != 'confirmed'){
+    //         $orderlist->final_price = $request->price;
+    //         session()->flash('msg', 'Price updated successfuly');
+    //         return redirect('orderlist/myOrders');
+    //     }
+
+    //     session()->flash('msg', 'Price of confirmed product cannot be changed');
+    //     return redirect('orderlist/myOrders');
+
+    // }
+
+
+
+
 }
