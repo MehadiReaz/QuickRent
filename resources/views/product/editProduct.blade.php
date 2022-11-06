@@ -54,12 +54,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3">
-<<<<<<< HEAD
-                                    <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" style="max-width: 200px; m-height: 100px;">
-=======
-                                    <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" style="max-width: 200px; m-height: 100px;"
+                                    <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" style="max-width: 200px; m-height: 110px;"
                                     >
->>>>>>> 19fbf6a56d82b3d0f992272929cbca77e3d5dd3e
                                     <input type="file" name="photo" value="{{$product->photo}}" >
                                 </div>
                                 <div class="mb-3">
