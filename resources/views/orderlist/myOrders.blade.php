@@ -189,10 +189,9 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>Product <b>Management</b></h2>
+                        <h2>Borrow <b>Management</b></h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="addProduct" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add Product</span></a>
                         <a href="{{ route('customer_home') }}" class="btn btn-secondary"> <span>Customer Dashboard</span></a>
                     </div>
                 </div>
@@ -201,10 +200,10 @@ $(document).ready(function(){
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Detail</th>
+                        <th>Owner id</th>
+                        <th>Final price</th>
+                        <th>Product id</th>
+                        <th>Status</th>
                         <th>Actions</th>
                         {{-- <th>Photo</th> --}}
                     </tr>
@@ -221,16 +220,84 @@ $(document).ready(function(){
                             <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                         </td>
                     </tr> --}}
-                    @foreach($products as $product)
+                    @foreach($myBorrows as $myBorrow)
                     <tr>
-                        <td>{{$product->id}}</td>
-                        <td>{{$product->name}}</td>
-                        <td>{{$product->price}}</td>
-                        <td>{{$product->category}}</td>
-                        <td>{{$product->details}}</td>
+                        <td>{{$myBorrow->id}}</td>
+                        <td>{{$myBorrow->owner_id}}</td>
+                        <td>{{$myBorrow->final_price}}</td>
+                        <td>{{$myBorrow->product_id}}</td>
+                        <td>{{$myBorrow->status}}</td>
+                        <td @if ($myBorrow->status=="pending")
+                            bgcolor="red"
+                            @elseif ($myBorrow->status=="confirm")
+                            bgcolor="yellow"
+                            @else
+                            bgcolor="lime"
+                        @endif>{{$myBorrow->status}}</td>
                         {{-- <td>{{$product->photo}}</td> --}}
                         <td>
-                            <a href="{{route("myOrders")}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            {{-- <a href="editProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="deleteProduct/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="productStatusTogg/{{$product->id}}" class="rent" title="Rent On/Off" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>Rent <b>Management</b></h2>
+                    </div>
+                    <div class="col-sm-7">
+                        <a href="{{ route('customer_home') }}" class="btn btn-secondary"> <span>Customer Dashboard</span></a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Borrower id</th>
+                        <th>Final price</th>
+                        <th>Product id</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                        {{-- <th>Photo</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{-- <tr>
+                        <td>1</td>
+                        <td><a href="#"><img src="/examples/images/avatar/1.jpg" class="avatar" alt="Avatar"> Michael Holz</a></td>
+                        <td>04/10/2013</td>
+                        <td>Admin</td>
+                        <td><span class="status text-success">&bull;</span> Active</td>
+                        <td>
+                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                        </td>
+                    </tr> --}}
+                    @foreach($myRents as $myRent)
+                    <tr>
+                        <td>{{$myRent->id}}</td>
+                        <td>{{$myRent->borrower_id}}</td>
+                        <td>{{$myRent->final_price}}</td>
+                        <td>{{$myRent->product_id}}</td>
+                        <td>{{$myRent->status}}</td>
+                        <td @if ($myRent->status=="pending")
+                            bgcolor="red"
+                            @elseif ($myRent->status=="confirm")
+                            bgcolor="yellow"
+                            @else
+                            bgcolor="lime"
+                        @endif>{{$myRent->status}}</td>
+                        {{-- <td>{{$product->photo}}</td> --}}
+                        <td>
+                            {{-- <a href="editProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="deleteProduct/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="productStatusTogg/{{$product->id}}" class="rent" title="Rent On/Off" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
                         </td>
                     </tr>
                     @endforeach
