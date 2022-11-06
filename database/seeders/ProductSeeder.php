@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
         $obj->price = 115000;
         $obj->category = "Phone";
         $obj->details = "I-Phone 13-Pro";
-        $obj->status ="";
+        //$obj->status ="";
         $obj->photo ="";
         $obj->c_id = 1;
         $obj->save();
