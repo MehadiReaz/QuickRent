@@ -205,6 +205,7 @@ $(document).ready(function(){
                         <th>Price</th>
                         <th>Category</th>
                         <th>Detail</th>
+                        <th>Status</th>
                         <th>Actions</th>
                         {{-- <th>Photo</th> --}}
                     </tr>
@@ -228,10 +229,18 @@ $(document).ready(function(){
                         <td>{{$product->price}}</td>
                         <td>{{$product->category}}</td>
                         <td>{{$product->details}}</td>
+                        <td @if ($product->status=="available")
+                            bgcolor="lime"
+                            @elseif ($product->status=="unavailable")
+                            bgcolor="red"
+                            @else
+                            bgcolor="yellow"
+                        @endif>{{$product->status}}</td>
                         {{-- <td>{{$product->photo}}</td> --}}
                         <td>
                             <a href="editProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                             <a href="deleteProduct/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="productStatusTogg/{{$product->id}}" class="rent" title="Rent On/Off" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a>
                         </td>
                     </tr>
                     @endforeach

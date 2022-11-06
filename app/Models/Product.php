@@ -17,4 +17,10 @@ class Product extends Model
         'photo',
         'c_id',
     ];
+
+    public function owner(){
+        return Customer::where('id', $this->c_id)->first();
+    }
+
+
 }

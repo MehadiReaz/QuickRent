@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->text('category');
             $table->text('details');
+            $table->text('status')->default('unavailable');
             $table->text('photo')->nullable();
             $table->integer('c_id');
             $table->timestamps();

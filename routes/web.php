@@ -50,4 +50,6 @@ Route::post('/product/addProduct',[ProductController::class, 'addProduct_submit'
 Route::get('/product/editProduct/{id}',[ProductController::class, 'editProduct'])->name('editProduct');
 Route::post('/product/editProduct',[ProductController::class, 'editProduct_submit'])->name('editProduct_submit');
 Route::get('/product/deleteProduct/{id}',[ProductController::class, 'deleteProduct'])->name('deleteProduct');
-
+Route::get('/product/productStatusTogg/{id}',[ProductController::class, 'productStatusTogg'])->name('productStatusTogg');
+Route::get('/product/rentProduct',[ProductController::class, 'rentProduct'])->name('rentProduct');
+Route::get('/product/rentingProduct/{id}',[ProductController::class, 'rentingProduct'])->name('rentingProduct');

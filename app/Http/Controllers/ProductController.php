@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Http\Controllers\CategoryController;
+use App\Http\Middleware\Customer;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -108,10 +109,13 @@ class ProductController extends Controller
         $obj->price = $request->price;
         $obj->category = $request->category;
         $obj->details = $request->details;
+        $obj->status = "unavailable";
         $obj->c_id = session()->get('c_id');
         $obj->save();
 
-        return view('product.addProduct')->with('msg', 'Product added successfully');
+        $categorys = CategoryController::allCategorys();
+
+        return view('product.addProduct')->with('msg', 'Product added successfully')->with("categorys", $categorys);
     }
 
     public function editProduct(Request $request){
@@ -145,6 +149,36 @@ class ProductController extends Controller
 
         session()->flash('msg', 'Delete successful.');
         return redirect('product/product');
+    }
+
+    public function productStatusTogg(Request $request){
+        $product = Product::where('id', $request->id)->first();
+
+        if($product->status=="available"){
+            $product->status="unavailable";
+            $product->save();
+            return redirect('product/product');
+        }
+        elseif($product->status=="unavailable"){
+            $product->status="available";
+            $product->save();
+            return redirect('product/product');
+        }
+        else{
+            session()->flash('msg', 'Cannot change the status of rented item');
+        return redirect('product/product');
+        }
+    }
+
+    public function rentProduct(){
+        $products = Product::select("*")->whereNotIn('c_id',[session()->get('c_id')])->get();
+        return view('product/rentProduct')->with("products", $products);
+    }
+
+    public function rentingProduct(Request $request){
+        $product = Product::Where('id', $request->id)->first();
+        $product->owner();
+        return view('product.rentingProduct')->with("product", $product)->with("owner", $product->owner());
     }
 
 }
