@@ -188,7 +188,7 @@ $(document).ready(function(){
                         <h2>Customer <b>Management</b></h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>	
+                        <a href="{{ route('customer_signup') }}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>	
                         <a href="{{ route('admin_home') }}" class="btn btn-secondary"> <span>Admin Dashboard</span></a>					
                     </div>
                 </div>
