@@ -113,7 +113,9 @@ class ProductController extends Controller
         $obj->c_id = session()->get('c_id');
         $obj->save();
 
-        return view('product.addProduct')->with('msg', 'Product added successfully');
+        $categorys = CategoryController::allCategorys();
+
+        return view('product.addProduct')->with('msg', 'Product added successfully')->with("categorys", $categorys);
     }
 
     public function editProduct(Request $request){
