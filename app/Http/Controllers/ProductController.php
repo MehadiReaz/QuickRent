@@ -111,7 +111,7 @@ class ProductController extends Controller
             ]);
             $ext = $request->file('photo')->extension();
             $final_name = time().'.'.$ext;
-            $request->file('photo')->move(public_path('uploads/'),$final_name);
+            $request->file('photo')->move(public_path('uploads/product'),$final_name);
             $obj->photo =$final_name;
         }
 
@@ -119,7 +119,7 @@ class ProductController extends Controller
         $obj->price = $request->price;
         $obj->category = $request->category;
         $obj->details = $request->details;
-        $obj->status = "unavailable";
+        //$obj->status = "unavailable";
         $obj->c_id = session()->get('c_id');
         $obj->save();
 
