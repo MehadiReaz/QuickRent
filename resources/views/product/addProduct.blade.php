@@ -1,7 +1,7 @@
 @extends('customer.layout.app')
-
 @section('heading', 'Add Product')
 @section('main_content')
+
 <div class="main-content">
     <section class="section">
         <div class="section-header">
@@ -11,10 +11,10 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-4">
-                        <form action="{{ route('addProduct_submit') }}" method="post">
-
+                        <form action="{{ route('addProduct_submit') }}" method="post" enctype="multipart/form-data">>
                             @csrf
                             <div class="addProduct-form">
+                                {{-- <input type="text" class="form-control" name="id" value="{{$product->id}}" hidden> --}}
                                 <div class="mb-3">
                                     <label for="" class="form-label" >Product Name</label>
                                     <input type="text" class="form-control" name="name">
@@ -52,6 +52,8 @@
                                 <div class="col-md-3">
                                     <img src="{ asset('uploads/'}" alt="" class="profile-photo w_100_p" >
                                     <input type="file" class="form-control mt_10" name="photo">
+                                    {{-- <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" > --}}
+                                    <input type="file" name="photo" >
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary bg-website">Submit</button>
