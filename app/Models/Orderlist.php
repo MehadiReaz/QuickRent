@@ -25,6 +25,6 @@ class Orderlist extends Model
     }
 
     public function product(){
-        return Customer::where('id', $this->product_id)->first();
+        return Product::where('id', $this->product_id)->first();
     }
 }

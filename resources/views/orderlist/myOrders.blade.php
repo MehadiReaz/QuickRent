@@ -224,9 +224,7 @@ $(document).ready(function(){
                     <tr>
                         <td>{{$myBorrow->id}}</td>
                         <td>{{$myBorrow->owner_id}}</td>
-                        <td><input type="number" class="form-control" name="final_price" id="final_price{{$myBorrow->id}}" value="{{$myBorrow->final_price}}" @if ($myBorrow->status!="pending")
-                            readonly
-                        @endif></td>
+                        <td>{{$myBorrow->final_price}}</td>
                         <td>{{$myBorrow->product_id}}</td>
                         <td @if ($myBorrow->status=="pending")
                             bgcolor="red"
@@ -236,7 +234,7 @@ $(document).ready(function(){
                             bgcolor="lime"
                         @endif>{{$myBorrow->status}}</td>
                         <td>
-                            <a href="cancelOrder/{{$myBorrow->id}}/final_price" class="delete" title="Cancel" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="cancelOrder/{{$myBorrow->id}}" class="delete" title="Cancel" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                             {{-- <a href="offerOrderPrice/{{$myBorrow->id}}/{{$price}}" class="offer" title="Offer Price" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
                             {{-- <a href="confirmOrder/{{$product->id}}" class="rent" title="Confirm" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
                         </td>

@@ -91,6 +91,16 @@ class OrderlistController extends Controller
         $myBorrows = Orderlist::Where('borrower_id', session()->get('c_id'))->get();
         $myRents = Orderlist::Where('owner_id', session()->get('c_id'))->get();
 
+        foreach($myBorrows as $myBorrow){
+            $myBorrow->owner_id = $myBorrow->owner()->name;
+            $myBorrow->product_id = $myBorrow->product()->name;
+        }
+
+        foreach($myRents as $myRent){
+            $myRent->borrower_id = $myRent->borrower()->name;
+            $myRent->product_id = $myRent->product()->name;
+        }
+
         return view('orderlist/myOrders')->with('myBorrows', $myBorrows)->with('myRents', $myRents);
     }
 
