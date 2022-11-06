@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
         $obj->price = 115000;
         $obj->category = "Phone";
         $obj->details = "I-Phone 13-Pro";
-        $obj->status ="rented";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 1;
         $obj->save();
@@ -31,6 +31,7 @@ class ProductSeeder extends Seeder
         $obj->price = 45000;
         $obj->category = "Phone";
         $obj->details = "One Plus 9RT 8/128";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 2;
         $obj->save();
@@ -40,6 +41,7 @@ class ProductSeeder extends Seeder
         $obj->price = 55000;
         $obj->category = "Phone";
         $obj->details = "Samsung S21 FE 6/128";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 3;
         $obj->save();
@@ -49,6 +51,7 @@ class ProductSeeder extends Seeder
         $obj->price = 56000;
         $obj->category = "Phone";
         $obj->details = "Pixel 6 6/128";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 4;
         $obj->save();
@@ -58,6 +61,7 @@ class ProductSeeder extends Seeder
         $obj->price = 15500;
         $obj->category = "Phone";
         $obj->details = "Realmi C2 6/64";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 5;
         $obj->save();
@@ -69,6 +73,7 @@ class ProductSeeder extends Seeder
         $obj->price = 570000;
         $obj->category = "Moto-bike";
         $obj->details = "Engine-150 Cc,Mileage-40 Kmpl,Dual Channel ABS";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 1;
         $obj->save();
@@ -78,6 +83,7 @@ class ProductSeeder extends Seeder
         $obj->price = 550000;
         $obj->category = "Moto-bike";
         $obj->details = "Engine-150 Cc,Mileage-40 Kmpl,Dual Channel ABS";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 2;
         $obj->save();
@@ -87,6 +93,7 @@ class ProductSeeder extends Seeder
         $obj->price = 115000;
         $obj->category = "Moto-bike";
         $obj->details = "Engine-150 Cc,Mileage-40 Kmpl,Dual Channel ABS";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 3;
         $obj->save();
@@ -96,6 +103,7 @@ class ProductSeeder extends Seeder
         $obj->price = 429950;
         $obj->category = "Moto-bike";
         $obj->details = "Engine-150 Cc,Mileage-35 Kmpl,Dual Channel ABS";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 4;
         $obj->save();
@@ -105,6 +113,7 @@ class ProductSeeder extends Seeder
         $obj->price = 487000;
         $obj->category = "Moto-bike";
         $obj->details = "Engine-125 Cc,Mileage-40 Kmpl,Bosch 9.1 MB 1-Channel ABS";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 5;
         $obj->save();
@@ -116,6 +125,7 @@ class ProductSeeder extends Seeder
         $obj->price = 2150000;
         $obj->category = "Car";
         $obj->details = "Model:Axio X,Engine Capacity:1500cc,Fuel System:Octane";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 1;
         $obj->save();
@@ -125,6 +135,7 @@ class ProductSeeder extends Seeder
         $obj->price = 3950000;
         $obj->category = "Car";
         $obj->details = "Model:Axio X,Engine Capacity:1500cc,Fuel System:Octane/Hybrid";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 2;
         $obj->save();
@@ -134,6 +145,7 @@ class ProductSeeder extends Seeder
         $obj->price = 3650000;
         $obj->category = "Car";
         $obj->details = "Model:Allion G,Engine Capacity:1500cc,Fuel System:Octane";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 3;
         $obj->save();
@@ -143,6 +155,7 @@ class ProductSeeder extends Seeder
         $obj->price = 1645000;
         $obj->category = "Car";
         $obj->details = "Model:Allion A15,Engine Capacity:1500cc,Fuel System:Octane/LPG";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 4;
         $obj->save();
@@ -152,6 +165,7 @@ class ProductSeeder extends Seeder
         $obj->price = 7080000;
         $obj->category = "Car";
         $obj->details = "Model:Harrier,Engine Capacity:1500cc,Fuel System:Octane";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 5;
         $obj->save();
@@ -162,6 +176,7 @@ class ProductSeeder extends Seeder
         $obj->price = 529;
         $obj->category = "Book";
         $obj->details = "Author: David Flanagan,Publishers: O'Reilly";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 1;
         $obj->save();
@@ -171,6 +186,7 @@ class ProductSeeder extends Seeder
         $obj->price = 414;
         $obj->category = "Book";
         $obj->details = "Author: Eric Matthes,Publishers: San Francisco";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 2;
         $obj->save();
@@ -180,6 +196,7 @@ class ProductSeeder extends Seeder
         $obj->price = 115000;
         $obj->category = "Book";
         $obj->details = "Author: E - Balagurusamy,Publishers: Mcgraw Hill Education";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 3;
         $obj->save();
@@ -189,6 +206,7 @@ class ProductSeeder extends Seeder
         $obj->price = 414;
         $obj->category = "Book";
         $obj->details = "Author: Eric Matthes,Publishers: San Francisco";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 4;
         $obj->save();
@@ -198,6 +216,7 @@ class ProductSeeder extends Seeder
         $obj->price = 529;
         $obj->category = "Book";
         $obj->details = "Author: David Flanagan,Publishers: O'Reilly";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 5;
         $obj->save();
@@ -208,6 +227,7 @@ class ProductSeeder extends Seeder
         $obj->price = 37490;
         $obj->category = "Refrigerator";
         $obj->details = "Warranty: 12years,Capacity: 282 Ltr";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 1;
         $obj->save();
@@ -217,6 +237,7 @@ class ProductSeeder extends Seeder
         $obj->price = 53300;
         $obj->category = "Refrigerator";
         $obj->details = "Warranty: 12years,Capacity: 324 Litre";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 2;
         $obj->save();
@@ -226,6 +247,7 @@ class ProductSeeder extends Seeder
         $obj->price = 41770;
         $obj->category = "Refrigerator";
         $obj->details = "Warranty: 10years,Capacity: 350 Ltr";
+        $obj->status ="available";
         $obj->photo ="";
         $obj->c_id = 3;
         $obj->save();
