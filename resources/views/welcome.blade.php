@@ -702,7 +702,7 @@ function closeNav() {
                           <h3>
                              <span id="confirm">
                           </h3>
-
+                          
                           <p>Name *</p>
                           <input id="txt_name" type="text" Required="required">
 
