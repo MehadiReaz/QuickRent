@@ -36,7 +36,7 @@
                                     <select id="category" class="form-control" name="category">
                                         <ul class="dropdown-menu" aria-labelledby="category">
                                             @foreach ($categorys as $category)
-                                            <li><option value={{$category}} @if ($product->category==$category)
+                                            <li><option value={{$category->name}} @if ($product->category==$category)
                                                @selected(true)
                                             @endif >{{$category->name}}</option></li>
                                             @endforeach

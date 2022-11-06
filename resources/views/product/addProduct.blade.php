@@ -34,7 +34,7 @@
                                     <select id="category" class="form-control" name="category">
                                         <ul class="dropdown-menu" aria-labelledby="category">
                                             @foreach ($categorys as $category)
-                                            <li><option value={{$category}}>{{$category->name}}</option></li>
+                                            <li><option value={{$category->name}}>{{$category->name}}</option></li>
                                             @endforeach
                                         </ul>
                                     </select>
