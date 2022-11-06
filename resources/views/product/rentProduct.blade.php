@@ -230,7 +230,7 @@ $(document).ready(function(){
                         <td>{{$product->details}}</td>
                         {{-- <td>{{$product->photo}}</td> --}}
                         <td>
-                            <a href="{{route("myOrders")}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="rentingProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                         </td>
                     </tr>
                     @endforeach
