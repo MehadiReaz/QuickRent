@@ -22,5 +22,4 @@ class Product extends Model
         return Customer::where('id', $this->c_id)->first();
     }
 
-
 }
