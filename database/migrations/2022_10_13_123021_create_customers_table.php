@@ -20,10 +20,9 @@ return new class extends Migration
             $table->text('password');
             $table->text('phone');
             $table->text('country');
-            $table->text('city');
             $table->text('address');
             $table->text('state');
-            // $table->text('city');
+            $table->text('city');
             $table->text('zip');
             $table->text('photo')->nullable();
             $table->integer('status');

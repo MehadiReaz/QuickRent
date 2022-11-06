@@ -22,9 +22,9 @@ class customerSeeder extends Seeder
         $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->phone = "01733901774";
         $obj->country = "Bangladesh";
-        $obj->city = "Dhaka";
         $obj->address = "Balubari,Khilkhat";
         $obj->state ="Dhaka";
+        $obj->city = "Dhaka";
         $obj->zip = "Reaz.zip";
         $obj->status =0;
         $obj->token = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
@@ -36,9 +36,9 @@ class customerSeeder extends Seeder
         $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->phone = "01843901794";
         $obj->country = "Bangladesh";
-        $obj->city = "Dhaka";
         $obj->address = "Kazibari,Kuril Bishwa Road";
         $obj->state ="Dhaka";
+        $obj->city = "Dhaka";
         $obj->zip = "shoumik.zip";
         $obj->status =0;
         $obj->token = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
@@ -50,9 +50,9 @@ class customerSeeder extends Seeder
         $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->phone = "01733901774";
         $obj->country = "Bangladesh";
-        $obj->city = "Dhaka";
         $obj->address = "Nikunjo-2,Road 1/B";
         $obj->state ="Dhaka";
+        $obj->city = "Dhaka";
         $obj->zip = "hamim.zip";
         $obj->status =0;
         $obj->token = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
@@ -64,9 +64,9 @@ class customerSeeder extends Seeder
         $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->phone = "01796915157";
         $obj->country = "Bangladesh";
-        $obj->city = "Dhaka";
         $obj->address = "Dhanmondi Road 11/A";
         $obj->state ="Dhaka";
+        $obj->city = "Dhaka";
         $obj->zip = "shams.zip";
         $obj->status =0;
         $obj->token = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
@@ -78,9 +78,9 @@ class customerSeeder extends Seeder
         $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->phone = "01733901567";
         $obj->country = "Bangladesh";
-        $obj->city = "Dhaka";
         $obj->address = "Kuratoli,Kazibari";
         $obj->state ="Dhaka";
+        $obj->city = "Dhaka";
         $obj->zip = "jahid.zip";
         $obj->status =0;
         $obj->token = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
@@ -92,9 +92,9 @@ class customerSeeder extends Seeder
         $obj->password = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
         $obj->phone = "01733561774";
         $obj->country = "Bangladesh";
-        $obj->city = "Dhaka";
         $obj->address = "House-building,Uttora";
         $obj->state ="Dhaka";
+        $obj->city = "Dhaka";
         $obj->zip = "kanon.zip";
         $obj->status =0;
         $obj->token = "$2y$10$4.tH2GkXHLS04br0NXJhLe3qB4AQ/wpEVC6ww86LLm0sRX1ghAJIO";
