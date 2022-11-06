@@ -50,7 +50,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3">
-                                    <img src="{ asset('uploads/'}" alt="" class="profile-photo w_100_p">
+                                    <img src="{ asset('uploads/'}" alt="" class="profile-photo w_100_p" >
                                     <input type="file" class="form-control mt_10" name="photo">
                                 </div>
                                 <div class="mb-3">

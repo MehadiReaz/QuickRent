@@ -675,7 +675,7 @@ function closeNav() {
 </div>
 
 
-<section>
+<section class="contact">
   <div class="rt-container">
         <div class="col-rt-12">
             <div class="Scriptcontent">
