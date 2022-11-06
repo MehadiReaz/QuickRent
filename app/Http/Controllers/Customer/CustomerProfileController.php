@@ -47,11 +47,11 @@ class CustomerProfileController extends Controller
                 'photo' => 'image|mimes:jpg,jpeg,png,gif',
             ]);
 
-            unlink(public_path('uploads/'.$customer_data->photo));
+            //unlink(public_path('uploads/'.$customer_data->photo));
 
             $id-> id = $request->id;
             $ext = $request->file('photo')->extension();
-            $final_name = 'customer'.'.'.$ext;
+            $final_name = time().'.'.$ext;
 
             $request->file('photo')->move(public_path('uploads/'),$final_name);
 
