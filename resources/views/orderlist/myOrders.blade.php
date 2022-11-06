@@ -226,7 +226,6 @@ $(document).ready(function(){
                         <td>{{$myBorrow->owner_id}}</td>
                         <td>{{$myBorrow->final_price}}</td>
                         <td>{{$myBorrow->product_id}}</td>
-                        <td>{{$myBorrow->status}}</td>
                         <td @if ($myBorrow->status=="pending")
                             bgcolor="red"
                             @elseif ($myBorrow->status=="confirm")
@@ -234,17 +233,16 @@ $(document).ready(function(){
                             @else
                             bgcolor="lime"
                         @endif>{{$myBorrow->status}}</td>
-                        {{-- <td>{{$product->photo}}</td> --}}
                         <td>
-                            {{-- <a href="editProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                            <a href="deleteProduct/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                            <a href="productStatusTogg/{{$product->id}}" class="rent" title="Rent On/Off" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
+                            <a href="cancelOrder/{{$myBorrow->id}}" class="delete" title="Cancel" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            {{-- <a href="offerOrderPrice/{{$myBorrow->id}}/{{$price}}" class="offer" title="Offer Price" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
+                            {{-- <a href="confirmOrder/{{$product->id}}" class="rent" title="Confirm" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-
+            <br><br>
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
@@ -285,19 +283,18 @@ $(document).ready(function(){
                         <td>{{$myRent->borrower_id}}</td>
                         <td>{{$myRent->final_price}}</td>
                         <td>{{$myRent->product_id}}</td>
-                        <td>{{$myRent->status}}</td>
                         <td @if ($myRent->status=="pending")
                             bgcolor="red"
-                            @elseif ($myRent->status=="confirm")
-                            bgcolor="yellow"
-                            @else
+                            @elseif ($myRent->status=="confirmed")
                             bgcolor="lime"
+                            @else
+                            bgcolor="yellow"
                         @endif>{{$myRent->status}}</td>
                         {{-- <td>{{$product->photo}}</td> --}}
                         <td>
-                            {{-- <a href="editProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                            <a href="deleteProduct/{{$product->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                            <a href="productStatusTogg/{{$product->id}}" class="rent" title="Rent On/Off" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a> --}}
+                            <a href="cancelOrder/{{$myRent->id}}" class="delete" title="Cancel" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="confirmOrder/{{$myRent->id}}" class="rent" title="Confirm" data-toggle="tooltip"><i class="material-icons">&#xe982;</i></a>
+
                         </td>
                     </tr>
                     @endforeach

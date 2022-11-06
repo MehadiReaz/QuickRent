@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+Use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
@@ -41,10 +41,10 @@ class AdminProfileController extends Controller
                 'photo' => 'image|mimes:jpg,jpeg,png,gif',
             ]);
 
-            unlink(public_path('uploads/'.$admin_data->photo));
+            //unlink(public_path('uploads/'.$admin_data->photo));
 
             $ext = $request->file('photo')->extension();
-            $final_name = 'admin'.'.'.$ext;
+            $final_name = time().'.'.$ext;
 
             $request->file('photo')->move(public_path('uploads/'),$final_name);
 
@@ -58,5 +58,10 @@ class AdminProfileController extends Controller
 
         return redirect()->back()->with('success','Profile information updated');
     }
-
+        public function deleteCustomer(Request $request){
+        $customer = Customer::where('id', $request->id)->first();
+        $customer->delete();
+        // session()->flash('msg', 'Delete successful.');
+        return redirect('/admin/customers');
+    }
 }

@@ -27,6 +27,7 @@ Route::post('/admin/reset-password-submit', [AdminLoginController::class, 'reset
 Route::get('/admin/edit-profile', [AdminProfileController::class, 'index'])->name('admin_profile')->middleware('admin:admin');
 Route::post('/admin/edit-profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
 Route::get('/admin/customers', [AdminHomeController::class, 'viwe_customer'])->name('viwe_customer');
+Route::get('/admin/deletecustomer/{id}',[AdminProfileController::class, 'deleteCustomer'])->name('deleteCustomer');
 
 //Customer
 Route::get('/customer/dash', [CustomerHomeController::class, 'index'])->name('customer_home')->middleware('customer:customer');
@@ -58,3 +59,6 @@ Route::get('/product/rentingProduct/{id}',[ProductController::class, 'rentingPro
 //Order
 Route::get('/orderlist/orderProduct/{id}',[OrderlistController::class, 'orderProduct'])->name('orderProduct');
 Route::get('/orderlist/myOrders',[OrderlistController::class, 'myOrders'])->name('myOrders');
+Route::get('/orderlist/cancelOrder/{id}',[OrderlistController::class, 'cancelOrder'])->name('cancelOrder');
+Route::get('/orderlist/confirmOrder/{id}',[OrderlistController::class, 'confirmOrder'])->name('confirmOrder');
+

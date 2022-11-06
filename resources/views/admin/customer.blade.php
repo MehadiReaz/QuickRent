@@ -188,7 +188,7 @@ $(document).ready(function(){
                         <h2>Customer <b>Management</b></h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>	
+                        <a href="{{ route('customer_signup') }}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>	
                         <a href="{{ route('admin_home') }}" class="btn btn-secondary"> <span>Admin Dashboard</span></a>					
                     </div>
                 </div>
@@ -230,10 +230,8 @@ $(document).ready(function(){
                     <td>{{ $user->state }}</td>
                     <td>{{ $user->zip }}</td>
                     <td>{{ $user->city }}</td>
-                    <td>
-                        <a href="{{ route('customer_profile') }}" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a></td>
-                    <td>    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                    </td>
+                    {{-- <td><a href="{{ route('customer_profile') }}" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a></td> --}}
+                    <td><a href="deletecustomer/{{$user->id}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

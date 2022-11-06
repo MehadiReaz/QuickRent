@@ -666,12 +666,6 @@ function closeNav() {
 
   <h2 style="text-align:center">Product Card</h2>
 
-<div class="card">
-  <img src="{{url('./product_pic/camera.jpg')}}" alt="camera">
-  <h1>Camera</h1>
-  <p class="price">$10</p>
-  <p><button>Add to Cart</button></p>
-</div>
 
 
 <section class="contact">
