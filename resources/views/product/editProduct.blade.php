@@ -12,8 +12,8 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-4">
-                        <form action="{{ route('editProduct_submit') }}" method="post">
-
+                        <form action="{{ route('editProduct_submit') }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="addProduct-form">
                                 <input type="text" class="form-control" name="id" value="{{$product->id}}" hidden>
@@ -52,6 +52,10 @@
                                     @if($errors->has('details'))
                                     <span class="text-danger">{{ $errors -> first('details') }}</span>
                                     @endif
+                                </div>
+                                <div class="col-md-3">
+                                    <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" >
+                                    <input type="file" name="photo" value="{{$product->photo}}" >
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-primary bg-website">Submit</button>

@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('orderlists', function (Blueprint $table) {
             $table->id();
+            $table->integer('owner_id');
+            $table->integer('final_price');
+            $table->integer('product_id');
+            $table->integer('borrower_id');
+            $table->text('status')->default('pending');
             $table->timestamps();
         });
     }

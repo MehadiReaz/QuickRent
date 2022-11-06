@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Orderlist;
 use App\Http\Requests\StoreOrderlistRequest;
 use App\Http\Requests\UpdateOrderlistRequest;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class OrderlistController extends Controller
 {
@@ -83,4 +85,26 @@ class OrderlistController extends Controller
     {
         //
     }
+
+    public function myOrders(){
+        $myBorrows = Orderlist::Where('borrower_id', session()->get('c_id'))->get();
+        $myRents = Orderlist::Where('owner_id', session()->get('c_id'))->get();
+
+        return view('orderlist/myOrders')->with('myBorrows', $myBorrows)->with('myRents', $myRents);
+    }
+
+    public function orderProduct(Request $request){
+        $product = Product::Where('id', $request->id)->first();
+
+        $orderlist = new Orderlist();
+        $orderlist->owner_id = $product->c_id;
+        $orderlist->final_price = $product->price;
+        $orderlist->product_id = $product->id;
+        $orderlist->borrower_id = session()->get('c_id');
+        $orderlist->status = 'pending';
+        $orderlist->save();
+
+        return back();
+    }
+
 }

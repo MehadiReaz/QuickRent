@@ -8,6 +8,7 @@ use App\Http\Controllers\Customer\CustomerHomeController;
 use App\Http\Controllers\Customer\CustomerLoginController;
 use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderlistController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -53,3 +54,7 @@ Route::get('/product/deleteProduct/{id}',[ProductController::class, 'deleteProdu
 Route::get('/product/productStatusTogg/{id}',[ProductController::class, 'productStatusTogg'])->name('productStatusTogg');
 Route::get('/product/rentProduct',[ProductController::class, 'rentProduct'])->name('rentProduct');
 Route::get('/product/rentingProduct/{id}',[ProductController::class, 'rentingProduct'])->name('rentingProduct');
+
+//Order
+Route::get('/orderlist/orderProduct/{id}',[OrderlistController::class, 'orderProduct'])->name('orderProduct');
+Route::get('/orderlist/myOrders',[OrderlistController::class, 'myOrders'])->name('myOrders');
