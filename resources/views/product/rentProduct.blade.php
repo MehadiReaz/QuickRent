@@ -200,12 +200,12 @@ $(document).ready(function(){
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        {{-- <th>ID</th> --}}
                         <th>Name</th>
                         <th>Price</th>
                         <th>Category</th>
                         <th>Detail</th>
-                        <th>Actions</th>
+                        <th>Photo</th>
                         {{-- <th>Photo</th> --}}
                     </tr>
                 </thead>
@@ -223,12 +223,12 @@ $(document).ready(function(){
                     </tr> --}}
                     @foreach($products as $product)
                     <tr>
-                        <td>{{$product->id}}</td>
+                        {{-- <td>{{$product->id}}</td> --}}
                         <td>{{$product->name}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->category}}</td>
                         <td>{{$product->details}}</td>
-                        {{-- <td>{{$product->photo}}</td> --}}
+                        <td><img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" style="max-width: 200px; m-height: 110px;"></td>
                         <td>
                             <a href="rentingProduct/{{$product->id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
                         </td>

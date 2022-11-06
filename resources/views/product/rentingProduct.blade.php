@@ -46,6 +46,9 @@
                                     <span class="text-danger">{{ $errors -> first('details') }}</span>
                                     @endif
                                 </div>
+                                <div>
+                                    <img src="{{ asset('uploads/product/'.$product->photo)}}" alt="" style="max-width: 200px; m-height: 110px;">
+                                </div>
                                 <br>
                                 <h1>Owner Info</h1>
                                 <div class="col-md-9">
