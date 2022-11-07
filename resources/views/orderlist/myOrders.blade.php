@@ -257,8 +257,8 @@ $(document).ready(function(){
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Borrower id</th>
-                        <th>Final price</th>
+                        <th>Borrower name</th>
+                        <th>Price</th>
                         <th>Product id</th>
                         <th>Status</th>
                         <th>Actions</th>
