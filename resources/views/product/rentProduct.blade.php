@@ -189,10 +189,10 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>Product <b>Management</b></h2>
+                        <h2>Borrow <b>Product</b></h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="addProduct" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add Product</span></a>
+                        {{-- <a href="addProduct" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add Product</span></a> --}}
                         <a href="{{ route('customer_home') }}" class="btn btn-secondary"> <span>Customer Dashboard</span></a>
                     </div>
                 </div>
