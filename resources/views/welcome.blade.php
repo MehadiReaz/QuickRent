@@ -587,10 +587,11 @@ img{
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-      <a href="#">Item 1</a>
-      <a href="#">Item 2</a>
-      <a href="#">Item 3</a>
-      <a href="#">Item 4</a>
+      <a href="#">Home</a>
+      <a href="#">Car</a>
+      <a href="#">Laptops</a>
+      <a href="#">Mobile Phones</a>
+      <a href="#">More</a>
     </div>
   </div>
 
