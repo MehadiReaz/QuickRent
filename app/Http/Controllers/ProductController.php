@@ -200,4 +200,20 @@ class ProductController extends Controller
         return view('product.rentingProduct')->with("product", $product)->with("owner", $product->owner());
     }
 
+    public function APIAllProducts(){
+        return Product::all();
+    }
+
+    public function APIAddProduct(Request $request){
+        //return $request;
+        $obj = new Product();
+        $obj->name = $request->name;
+        $obj->price = $request->price;
+        $obj->category = $request->category;
+        $obj->details = $request->details;
+        //$obj->status = "unavailable";
+        $obj->c_id = 1;//session()->get('c_id');
+        $obj->save();
+    }
+
 }
