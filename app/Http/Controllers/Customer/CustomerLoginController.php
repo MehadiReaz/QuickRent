@@ -12,6 +12,8 @@ use App\Models\Token;
 use Hash;
 use Auth;
 use DateTime;
+use Illuminate\Auth\Events\Failed;
+use PhpParser\Node\Stmt\Return_;
 
 class CustomerLoginController extends Controller
 {
@@ -154,7 +156,7 @@ class CustomerLoginController extends Controller
 
     public function APIlogin(Request $req){
         $user = Customer::Where('email', $req->email)->first();
-        //return Hash::check($req->password, $user->password);
+        //return $req;
         if($user && Hash::check($req->password, $user->password)){
             $api_token = Str::random(64);
             $token = new Token();
@@ -168,5 +170,17 @@ class CustomerLoginController extends Controller
 
         return "notFound";
     }
+
+    public function APIlogout(Request $req){
+        $token = Token::Where('token', $req->token)->first();
+        if($token){
+            $token->expired_at = new DateTime();
+            $token->save();
+            return true;
+        }
+        return false ;
+    }
+
+
 
 }
