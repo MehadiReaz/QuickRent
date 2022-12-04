@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Mail\Websitemail;
+use App\Models\Token;
 use Hash;
 use Auth;
 
@@ -148,4 +150,14 @@ class CustomerLoginController extends Controller
             return redirect()->route('customer_login');
          }
     }
+
+    public function APIlogin(Request $req){
+        $user = Customer::Where('email', $req->email)->Where('password', $req->password)->first();
+
+        if($user){
+            $api_token = Str::random(64);
+            $token = new Token();
+        }
+    }
+
 }

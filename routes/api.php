@@ -28,3 +28,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/product/product',[ProductController::class, 'APIAllProducts']);
 Route::post('/product/addProduct',[ProductController::class, 'APIAddProduct']);
+
+Route::post('/login',[CustomerLoginController::class, 'APIlogin']);
+Route::post('/login',[CustomerLogoutController::class, 'APIlogout']);

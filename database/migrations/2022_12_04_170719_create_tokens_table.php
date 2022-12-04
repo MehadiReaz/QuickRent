@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('token');
             $table->datetime('created_at');
             $table->datetime('expired_at');
-            
+
         });
     }
 
