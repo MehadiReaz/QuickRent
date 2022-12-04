@@ -200,7 +200,7 @@ class ProductController extends Controller
         return view('product.rentingProduct')->with("product", $product)->with("owner", $product->owner());
     }
 
-    public function APIAllProducts(){
+   /* public function APIAllProducts(){
         return Product::all();
     }
 
@@ -214,6 +214,14 @@ class ProductController extends Controller
         //$obj->status = "unavailable";
         $obj->c_id = 1;//session()->get('c_id');
         $obj->save();
+    }*/
+
+
+
+    public function APIList(){
+        return Product::all();
     }
+
+    
 
 }
