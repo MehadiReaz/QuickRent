@@ -30,3 +30,7 @@ Route::get('/product/rentproduct',[ProductController::class, 'APIAllProducts']);
 Route::post('/product/addProduct',[ProductController::class, 'APIAddProduct']);
 
 Route::get('/product/rentProduct',[ProductController::class,'APIList']);
+
+Route::post('/login',[CustomerLoginController::class, 'APIlogin']);
+Route::post('/logout',[CustomerLoginController::class, 'APIlogout']);
+

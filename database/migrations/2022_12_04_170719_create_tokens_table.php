@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('c_id');
             $table->string('token');
             $table->datetime('created_at');
-            $table->datetime('expired_at');
+            $table->datetime('expired_at')->nullable();
 
         });
     }

@@ -11,6 +11,7 @@ use App\Mail\Websitemail;
 use App\Models\Token;
 use Hash;
 use Auth;
+use DateTime;
 
 class CustomerLoginController extends Controller
 {
@@ -152,12 +153,20 @@ class CustomerLoginController extends Controller
     }
 
     public function APIlogin(Request $req){
-        $user = Customer::Where('email', $req->email)->Where('password', $req->password)->first();
-
-        if($user){
+        $user = Customer::Where('email', $req->email)->first();
+        //return Hash::check($req->password, $user->password);
+        if($user && Hash::check($req->password, $user->password)){
             $api_token = Str::random(64);
             $token = new Token();
+            $token->c_id = $user->id;
+            $token->token = $api_token;
+            $token->created_at = new DateTime();
+            //$token->expired_at = null;
+            $token->save();
+            return json_encode($token);
         }
+
+        return "notFound";
     }
 
 }
