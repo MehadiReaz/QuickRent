@@ -181,6 +181,16 @@ class CustomerLoginController extends Controller
         return false ;
     }
 
+    public function APIsignUp(Request $req){
 
-
+        $password = Hash::make($req->password);
+        $obj = new Customer();
+        $obj->name = $req->name;
+        $obj->email = $req->email;
+        $obj->password = $password;
+        //$obj->token = $token;
+        $obj->status =0;
+        $obj->save();
+        return true;
+    }
 }
