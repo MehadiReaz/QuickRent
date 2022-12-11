@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Customer\CustomerHomeController;
 use App\Http\Controllers\Customer\CustomerLoginController;
 use App\Http\Controllers\Customer\CustomerProfileController;
@@ -28,6 +29,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/product/rentproduct',[ProductController::class, 'APIAllProducts']);
 Route::post('/product/addProduct',[ProductController::class, 'APIAddProduct']);
+Route::get('/product/deleteProduct/{id}',[ProductController::class, 'APIDeleteProduct'])->middleware("APIAuth");
+Route::get('/product/toggleProduct/{id}',[ProductController::class, 'APIToggleProduct'])->middleware("APIAuth");
+Route::get('/product/myProduct',[ProductController::class, 'APIMyProducts'])->middleware("APIAuth");
+
+Route::get('/product/categories',[CategoryController::class, 'APIAllCategories'])->middleware("APIAuth");
 
 Route::get('/product/rentProduct',[ProductController::class,'APIList']);
 

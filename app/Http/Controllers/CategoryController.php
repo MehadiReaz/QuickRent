@@ -89,4 +89,11 @@ class CategoryController extends Controller
 
         return $categorys;
     }
+
+    public static function APIAllCategories(){
+        $categorys = Category::all();
+
+        return $categorys;
+    }
+
 }

@@ -200,9 +200,9 @@ class ProductController extends Controller
         return view('product.rentingProduct')->with("product", $product)->with("owner", $product->owner());
     }
 
-   /* public function APIAllProducts(){
-        return Product::all();
-    }
+    // public function APIAllProducts(){
+    //     return Product::all();
+    // }
 
     public function APIAddProduct(Request $request){
         //return $request;
@@ -211,10 +211,11 @@ class ProductController extends Controller
         $obj->price = $request->price;
         $obj->category = $request->category;
         $obj->details = $request->details;
-        //$obj->status = "unavailable";
-        $obj->c_id = 1;//session()->get('c_id');
+        $obj->status = "unavailable";
+        $obj->c_id = $request->c_id;
         $obj->save();
-    }*/
+        return true;
+    }
 
 
 
@@ -222,6 +223,38 @@ class ProductController extends Controller
         return Product::all();
     }
 
-    
+    public function APIMyProducts(Request $request){
+        $token = $request->header("Authorization");
+        $token = json_decode($token);
+        $products = Product::where('c_id',$token->userId)->get();
+        return $products;
+    }
+
+    public function APIDeleteProduct(Request $request){
+        $product = Product::where('id', $request->id)->first();
+        $product->delete();
+
+        return true;
+    }
+
+    public function APIToggleProduct(Request $request){
+        $product = Product::where('id', $request->id)->first();
+
+        if($product->status=="available"){
+            $product->status="unavailable";
+            $product->save();
+            return true;
+        }
+        elseif($product->status=="unavailable"){
+            $product->status="available";
+            $product->save();
+            return true;
+        }
+        else{
+           return 'Cannot change the status of rented item';
+        }
+    }
+
+
 
 }
