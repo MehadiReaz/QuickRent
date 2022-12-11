@@ -167,7 +167,6 @@ class CustomerLoginController extends Controller
             $token->save();
             return json_encode($token);
         }
-
         return "notFound";
     }
 
@@ -182,15 +181,29 @@ class CustomerLoginController extends Controller
     }
 
     public function APIsignUp(Request $req){
-
+        $token = hash('sha256',time());
         $password = Hash::make($req->password);
         $obj = new Customer();
         $obj->name = $req->name;
         $obj->email = $req->email;
         $obj->password = $password;
-        //$obj->token = $token;
+        $obj->token = $token;
+        
+        $verification_link = url('signup-verify/'.$req->email.'/'.$token);
+        $subject ='Signup Varification';
+        $message = 'Please click on the link below to confirm signup process: <br>';
+        $message .='<a href="'.$verification_link.'">';
+        $message .= $verification_link;
+        $message .= '</a>';
+        \Mail::to($req->email)->send(new Websitemail($subject,$message));
+        
         $obj->status =0;
         $obj->save();
+        
         return true;
     }
+    // public function varifyEmail(Request $request){
+        
+    // }
+
 }
