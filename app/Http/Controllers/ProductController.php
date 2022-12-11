@@ -219,8 +219,11 @@ class ProductController extends Controller
 
 
 
-    public function APIList(){
-        return Product::all();
+    public function APIRentProducts(Request $request){
+        $token = $request->header("Authorization");
+        $token = json_decode($token);
+        $products = Product::select("*")->whereNotIn('c_id',[$token->userId])->where('status',['available'])->get();
+        return $products;
     }
 
     public function APIMyProducts(Request $request){
@@ -255,6 +258,32 @@ class ProductController extends Controller
         }
     }
 
+    public function APIEditProduct(Request $request){
+        // $request->validate([
+        //     'name' => 'required',
+        //     'price' => 'required',
+        //     'category' => 'required',
+        //     'details' => 'required',
+        // ]);
+
+        $obj = Product::Where('id', $request->id)->first();
+        // if($request->hasFile('photo')){
+        //     $request->validate([
+        //         'photo' => 'image|mimes:jpg,jpeg,png,gif',
+        //     ]);
+        //     $ext = $request->file('photo')->extension();
+        //     $final_name = time().'.'.$ext;
+        //     $request->file('photo')->move(public_path('uploads/product/'),$final_name);
+        //     $obj->photo =$final_name;
+        // }
+        $obj->name = $request->name;
+        $obj->price = $request->price;
+        $obj->category = $request->category;
+        $obj->details = $request->details;
+        $obj->save();
+
+        return true;
+    }
 
 
 }
