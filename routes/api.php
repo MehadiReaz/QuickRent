@@ -32,6 +32,7 @@ Route::post('/product/addProduct',[ProductController::class, 'APIAddProduct']);
 Route::get('/product/deleteProduct/{id}',[ProductController::class, 'APIDeleteProduct'])->middleware("APIAuth");
 Route::get('/product/toggleProduct/{id}',[ProductController::class, 'APIToggleProduct'])->middleware("APIAuth");
 Route::post('/product/editProduct',[ProductController::class, 'APIEditProduct'])->middleware("APIAuth");
+Route::get('/product/editProduct/{id}',[ProductController::class, 'API1Product'])->middleware("APIAuth");
 Route::get('/product/myProduct',[ProductController::class, 'APIMyProducts'])->middleware("APIAuth");
 
 Route::get('/product/categories',[CategoryController::class, 'APIAllCategories'])->middleware("APIAuth");
@@ -41,4 +42,7 @@ Route::get('/product/rentProduct',[ProductController::class,'APIList']);
 Route::post('/login',[CustomerLoginController::class, 'APIlogin']);
 Route::post('/logout',[CustomerLoginController::class, 'APIlogout']);
 Route::post('/signUp',[CustomerLoginController::class, 'APIsignUp']);
+Route::get('/profileData',[CustomerProfileController::class, 'APIProfileData'])->middleware("APIAuth");
+Route::post('/editProfile',[CustomerProfileController::class, 'APIEditProfile'])->middleware("APIAuth");
+
 

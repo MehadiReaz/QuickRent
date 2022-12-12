@@ -233,15 +233,15 @@ class ProductController extends Controller
         return $products;
     }
 
-    public function APIDeleteProduct(Request $request){
-        $product = Product::where('id', $request->id)->first();
+    public function APIDeleteProduct($id){
+        $product = Product::where('id', $id)->first();
         $product->delete();
 
         return true;
     }
 
-    public function APIToggleProduct(Request $request){
-        $product = Product::where('id', $request->id)->first();
+    public function APIToggleProduct($id){
+        $product = Product::where('id', $id)->first();
 
         if($product->status=="available"){
             $product->status="unavailable";
@@ -285,5 +285,10 @@ class ProductController extends Controller
         return true;
     }
 
+
+    public function API1Product($id){
+        $product = Product::where('id', $id)->first();
+        return $product;
+    }
 
 }

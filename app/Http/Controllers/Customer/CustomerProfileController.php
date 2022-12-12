@@ -68,4 +68,31 @@ class CustomerProfileController extends Controller
 
         return redirect()->back()->with('success','Profile information updated');
     }
+
+    public function APIProfileData(Request $request){
+        $token = $request->header("Authorization");
+        $token = json_decode($token);
+        $data = Customer::where('id',$token->userId)->first();
+        return $data;
+    }
+
+    public function APIEditProfile(Request $request){
+        $token = $request->header("Authorization");
+        $token = json_decode($token);
+        $customer_data = Customer::where('id',$token->userId)->first();
+
+        $customer_data-> name = $request->name;
+        $customer_data -> email = $request -> email;
+        $customer_data-> phone = $request->phone;
+        $customer_data -> country = $request -> country;
+        $customer_data-> address = $request->address;
+        $customer_data -> state = $request -> state;
+        $customer_data-> city = $request->city;
+        $customer_data -> zip = $request -> zip;
+
+        $customer_data -> update();
+        return true;
+    }
+
+
 }
