@@ -188,7 +188,7 @@ class OrderlistController extends Controller
         $orderlist->status = 'pending';
         $orderlist->save();
 
-        return true;
+        return 'Product ordered successfully';
     }
 
 
@@ -211,7 +211,27 @@ class OrderlistController extends Controller
         return json_encode( ['myBorrows'=>$myBorrows,'myRents'=>$myRents]);
     }
 
+    public function APICancelOrder(Request $request){
 
+        $orderlist = Orderlist::Where('id', $request->id)->first();
+        if($orderlist->status != 'confirmed'){
+            $orderlist->delete();
+            return 'Order deleted successfully';
+        }
 
+        return 'Confirmed product cannot be deleted by Borrower. Please contact Owner';
+    }
+
+    public function APIConfirmOrder(Request $request){
+
+        $orderlist = Orderlist::Where('id', $request->id)->first();
+        if($orderlist->status == 'confirmed'){
+            return 'Order already confirmed';
+        }
+        $orderlist->status ='confirmed';
+        $orderlist->save();
+        return 'Order confirmed successfully';
+
+    }
 
 }

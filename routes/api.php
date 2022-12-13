@@ -49,4 +49,5 @@ Route::post('/editProfile',[CustomerProfileController::class, 'APIEditProfile'])
 //order
 Route::post('/product/rentingProductSubmit',[OrderlistController::class, 'APIOrderProduct'])->middleware("APIAuth");
 Route::get('/orderlist/myOrders',[OrderlistController::class, 'APIMyOrders'])->middleware("APIAuth");
-
+Route::get('/orderlist/cancelOrder/{id}',[OrderlistController::class, 'APICancelOrder'])->middleware("APIAuth");
+Route::get('/orderlist/confirmOrder/{id}',[OrderlistController::class, 'APIConfirmOrder'])->middleware("APIAuth");
