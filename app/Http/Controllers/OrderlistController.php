@@ -169,6 +169,48 @@ class OrderlistController extends Controller
 
     // }
 
+    public function APIOrderProduct(Request $request){
+        $token = $request->header("Authorization");
+        $token = json_decode($token);
+        $ids=Orderlist::Select('product_id')->Where('borrower_id', $token->userId)->get();
+        foreach($ids as $id){
+            if($id['product_id']==$request->id){
+                return 'Product order already in process';
+            }
+        }
+
+        $product = Product::Where('id', $request->id)->first();
+        $orderlist = new Orderlist();
+        $orderlist->owner_id = $product->c_id;
+        $orderlist->final_price = $product->price;
+        $orderlist->product_id = $product->id;
+        $orderlist->borrower_id = $token->userId;
+        $orderlist->status = 'pending';
+        $orderlist->save();
+
+        return true;
+    }
+
+
+    public function APIMyOrders(Request $request){
+        $token = $request->header("Authorization");
+        $token = json_decode($token);
+        $myBorrows = Orderlist::Where('borrower_id', $token->userId)->get();
+        $myRents = Orderlist::Where('owner_id', $token->userId)->get();
+
+        foreach($myBorrows as $myBorrow){
+            $myBorrow->owner_id = $myBorrow->owner()->name;
+            $myBorrow->product_id = $myBorrow->product()->name;
+        }
+
+        foreach($myRents as $myRent){
+            $myRent->borrower_id = $myRent->borrower()->name;
+            $myRent->product_id = $myRent->product()->name;
+        }
+
+        return json_encode( ['myBorrows'=>$myBorrows,'myRents'=>$myRents]);
+    }
+
 
 
 

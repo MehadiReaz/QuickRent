@@ -291,4 +291,13 @@ class ProductController extends Controller
         return $product;
     }
 
+    public function API1ProductOwner($id){
+        $product = Product::where('id', $id)->first();
+        return  json_encode( ['product'=>$product,'owner'=>$product->owner()]);
+    }
+
+
+
+
+
 }
