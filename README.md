@@ -1,66 +1,46 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# QuickRent Project
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Introduction
+The "QuickRent" project is a web application system that serves as an online platform for renting various items at a fair price. It allows individuals to offer their possessions for rent and enables others to directly interact with them to rent the desired items. This application provides an opportunity for people to earn money by renting out their valuable goods and allows those who cannot afford to buy expensive items to rent them for a specified period at a fixed fee. QuickRent aims to create a win-win situation for both renters and rentees, catering to the growing market of online rental platforms.
 
-## About Laravel
+## Problem Analysis
+The QuickRent project aims to address several renting difficulties. Often, people need tools or items for a short period but hesitate to purchase them due to the high cost. QuickRent offers a solution by allowing users to rent items on a pay-per-use basis, reducing the financial burden of purchasing infrequently used items. Additionally, it provides an opportunity for individuals to generate extra income by renting out underutilized possessions.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Feature Analysis
+### User Category
+There are two types of users in the QuickRent project:
+- Customer
+- Admin
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Feature List
+#### Customer:
+- Rent product
+- Borrow product
+- Edit profile
+- Add product
+- Delete product
+- Forgot password
+- Email verification
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Admin:
+- Add customer
+- Delete customer
+- Edit profile
+- Forgot password
 
-## Learning Laravel
+## Tools Used
+The following tools were used to develop this project:
+- VS Code
+- XAMPP Server
+- Composer
+- Chrome browser
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Impact of this Project
+The QuickRent project aims to make expensive items more accessible and affordable to ordinary people. By providing a platform for renting, it enables users to utilize products that are typically out of reach. Additionally, it helps users generate passive income by renting out their possessions.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Limitations and Possible Future Improvements
+While the QuickRent project addresses several renting challenges, there are still areas for improvement and future enhancements, such as:
+- Monitoring equipment availability
+- Streamlining equipment returns
+- Facilitating effective communication between owners and renters
+- Sending alerts for contract renewals
